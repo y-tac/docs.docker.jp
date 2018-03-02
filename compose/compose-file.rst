@@ -1270,17 +1270,13 @@ IPAM （IPアドレス管理）のカスタム設定を指定します。様々�
 ..    driver: Custom IPAM driver, instead of the default.
     config: A list with zero or more config blocks, each containing any of the following keys:
         subnet: Subnet in CIDR format that represents a network segment
-        ip_range: Range of IPs from which to allocate container IPs
         gateway: IPv4 or IPv6 gateway for the master subnet
-        aux_addresses: Auxiliary IPv4 or IPv6 addresses used by Network driver, as a mapping from hostname to IP
 
 * ``driver`` ：デフォルトの代わりに、カスタム IPAM ドライバを指定します。
 * ``config`` ：ゼロもしくは複数の設定ブロック一覧です。次のキーを使えます。
 
   * ``subnet`` ：ネットワーク・セグメントにおける CIDR のサブネットを指定します。
-  * ``ip_range``  ：コンテナに割り当てる IP アドレスの範囲を割り当てます。
   * ``gateway`` ：マスタ・サブネットに対する IPv4 または IPv6 ゲートウェイを指定します。
-  * ``aux_addresses`` ：ネットワーク・ドライバが補助で使う IPv4 または IPv6 アドレスを指定します。これはホスト名を IP アドレスに割り当てるためのものです。
 
 .. A full example:
 
@@ -1292,12 +1288,7 @@ IPAM （IPアドレス管理）のカスタム設定を指定します。様々�
      driver: default
      config:
        - subnet: 172.28.0.0/16
-         ip_range: 172.28.5.0/24
          gateway: 172.28.5.254
-         aux_addresses:
-           host1: 172.28.1.5
-           host2: 172.28.1.6
-           host3: 172.28.1.7
 
 .. external
 
